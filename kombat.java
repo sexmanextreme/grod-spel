@@ -12,6 +12,7 @@ public class kombat {
     if(feet.fien[0]>0&& feet.s_HP>0){
         atk();
         System.out.println("du attackerar!");
+         System.out.println("fiende stats: "+feet.fien[0]+" "+feet.fien[1]+" "+feet.fien[2]+" "+feet.fien[3]+" "+feet.fien[4]);
 //val för det du ska göra
 do{ System.out.println("1. offence \n 2. defence \n 3. magi"); int antsex=sex1.nextInt();
 switch (antsex){
@@ -22,15 +23,15 @@ switch (antsex){
                 int allsex1=sex1.nextInt();
                 switch(allsex1){
                     case 1 ->{
-                        
+                        feet.fien[0]-=15;
                         
                     }
                     case 2 ->{
-                        
+                        feet.fien[0]-=30;
                         
                     }
                     case 3 ->{
-                        
+                        feet.fien[0]-=100;
                         
                     }
                 }
@@ -58,9 +59,10 @@ switch (antsex){
             }
             
             
-        }  tur=false;
+        }tur=false;
+ System.out.println("fiende stats: "+feet.fien[0]+" "+feet.fien[1]+" "+feet.fien[2]+" "+feet.fien[3]+" "+feet.fien[4]);
 }while(tur);
-    }else if(feet.s_HP>0&&feet.fien[0]<=0){//fienden dör du lever
+    }else if(feet.fien[0]==0){//fienden dör du lever
         System.out.println("du vann!    woo");
 }
     else if(feet.s_HP<=0&&feet.fien[0]>0){//du dör fienden lever
@@ -88,4 +90,8 @@ System.out.print
  |                                                                                   |
  |-----------------------------------------------------------------------------------|
  """);
-}}
+}
+
+           
+
+}
