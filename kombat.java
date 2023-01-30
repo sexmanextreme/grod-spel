@@ -44,7 +44,7 @@ switch (antsex){
                 int allsex2=sex1.nextInt();
                 switch(allsex2){
                     case 1 ->{
-                        
+                        feet.s_HP=0;
                         
                     }
                     case 2 ->{
@@ -62,6 +62,14 @@ switch (antsex){
         }tur=false;
  System.out.println("fiende stats: "+feet.fien[0]+" "+feet.fien[1]+" "+feet.fien[2]+" "+feet.fien[3]+" "+feet.fien[4]);
 }while(tur);
+do{
+    int cool=(int) Math.floor(Math.random() * 10);
+    feet.s_HP-=cool/2;
+    
+    du();
+    System.out.println(feet.s_HP);
+    tur=true;
+}while(!tur);
     }else if(feet.fien[0]==0){//fienden dör du lever
         System.out.println("du vann!    woo");
 }
@@ -91,7 +99,14 @@ System.out.print
  |-----------------------------------------------------------------------------------|
  """);
 }
-
+static void du(){
+    System.out.println("""
+                       
+                       fienden attackerar
+                       
+                       (•̀o•́)ง
+                       """);
+}
            
 
 }
