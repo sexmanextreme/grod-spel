@@ -6,19 +6,20 @@ public class kombat {
     static void slag(String [] args){
        spelet feet = new spelet();
        Scanner sex1=new Scanner(System.in); 
-       boolean tur;
+       boolean tur=true;
+       boolean hm=feet.fien[0]>0&& feet.s_HP>0;
     //kombat startar
-    //check för att se om både du och fienden lever
-    if(feet.fien[0]>0&& feet.s_HP>0){
+    //check för att se om  du lever
+   while(tur&& feet.s_HP>0){
         atk();
         System.out.println("du attackerar!");
          System.out.println("fiende stats: "+feet.fien[0]+" "+feet.fien[1]+" "+feet.fien[2]+" "+feet.fien[3]+" "+feet.fien[4]);
 //val för det du ska göra
-do{ System.out.println("1. offence \n 2. defence \n 3. magi"); int antsex=sex1.nextInt();
+
+System.out.println("1. offence \n 2. defence \n 3. magi"); int antsex=sex1.nextInt();
 switch (antsex){
             case 1 -> {int cool=(int) Math.floor(Math.random() * 10);
-                //gör skada du vet, ju högre, ju mer skada desto lägre chans att träffa
-                atk();
+                //gör skada du vet, ju högre, ju mer skada desto lägre chans att träffa                
                 System.out.println("1. HÅRT \n 2. HÅRDARE\n 3. HÅRDAST");
                 int allsex1=sex1.nextInt();
                 switch(allsex1){
@@ -61,26 +62,29 @@ switch (antsex){
             
         }tur=false;
  System.out.println("fiende stats: "+feet.fien[0]+" "+feet.fien[1]+" "+feet.fien[2]+" "+feet.fien[3]+" "+feet.fien[4]);
-}while(tur);
-do{
+}
+
+while(!tur&&feet.fien[0]>=1){
     int cool=(int) Math.floor(Math.random() * 10);
-    feet.s_HP-=cool/2;
+    //cool/=4;
+    feet.s_HP-=cool;
     
     du();
-    System.out.println(feet.s_HP);
+    System.out.println(feet.s_HP+" "+cool);
     tur=true;
-}while(!tur);
-    }else if(feet.fien[0]==0){//fienden dör du lever
+}
+    
+     if(feet.fien[0]<feet.s_HP&&feet.s_HP>0){//fienden dör du lever
         System.out.println("du vann!    woo");
 }
-    else if(feet.s_HP<=0&&feet.fien[0]>0){//du dör fienden lever
+    else if(feet.s_HP<feet.fien[0]&&feet.fien[0]>0){//du dör fienden lever
         System.out.println("""
                            sucks to suck
                             ass to ass
                            """);
 }
-    
-    
+
+
 }
     static void atk(){
 System.out.print
