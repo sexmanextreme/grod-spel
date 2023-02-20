@@ -18,7 +18,7 @@ public class spelet {
         
 
         //int[] spelare={s_HP,s_atk,s_DEF,s_MAN,s_SPD};
-  
+        
         Scanner sex=new Scanner(System.in); 
         String ANSI_GREEN = "\u001B[32m";
         String ANSI_RESET = "\u001B[0m";

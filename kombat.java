@@ -9,26 +9,39 @@ public class kombat {
        boolean tur=true;
        boolean hm=feet.fien[0]>0&& feet.s_HP>0;
     //kombat startar
-    //check för att se om  du lever
-   while(tur&& feet.s_HP>0){
-        atk();
+    int cool=(int) Math.floor(Math.random() * 10);
+    double cola=(Math.random() *15)*0.3;
+    boolean figs=true;
+    while(figs){
+   if(tur&& feet.s_HP>0){
+        //atk();
         System.out.println("du attackerar!");
          System.out.println("fiende stats: "+feet.fien[0]+" "+feet.fien[1]+" "+feet.fien[2]+" "+feet.fien[3]+" "+feet.fien[4]);
 //val för det du ska göra
 
 System.out.println("1. offence \n 2. defence \n 3. magi"); int antsex=sex1.nextInt();
 switch (antsex){
-            case 1 -> {int cool=(int) Math.floor(Math.random() * 10);
+            case 1 -> {
                 //gör skada du vet, ju högre, ju mer skada desto lägre chans att träffa                
                 System.out.println("1. HÅRT \n 2. HÅRDARE\n 3. HÅRDAST");
                 int allsex1=sex1.nextInt();
                 switch(allsex1){
                     case 1 ->{
-                        feet.fien[0]-=15;
+                        cola=Math.floor(cola);
+                        if(cola==0){
+                            System.out.println("missa L");
+                        }
+                        feet.fien[0]-=15*cola;
+                        
                         
                     }
                     case 2 ->{
-                        feet.fien[0]-=30;
+                        cola=Math.floor(cola);
+                        if(cola==0){
+                            System.out.println("missa L");
+                        }
+                        
+                        feet.fien[0]-=30*cola;
                         
                     }
                     case 3 ->{
@@ -64,8 +77,8 @@ switch (antsex){
  System.out.println("fiende stats: "+feet.fien[0]+" "+feet.fien[1]+" "+feet.fien[2]+" "+feet.fien[3]+" "+feet.fien[4]);
 }
 
-while(!tur&&feet.fien[0]>=1){
-    int cool=(int) Math.floor(Math.random() * 10);
+if(!tur&&feet.fien[0]>=1){
+    
     //cool/=4;
     feet.s_HP-=cool;
     
@@ -74,15 +87,17 @@ while(!tur&&feet.fien[0]>=1){
     tur=true;
 }
     
-     if(feet.fien[0]<feet.s_HP&&feet.s_HP>0){//fienden dör du lever
+     if(feet.fien[0]<=0&&feet.s_HP>0){//fienden dör du lever
         System.out.println("du vann!    woo");
+        figs=false;
 }
-    else if(feet.s_HP<feet.fien[0]&&feet.fien[0]>0){//du dör fienden lever
+    else if(feet.s_HP<=0&&feet.fien[0]>0){//du dör fienden lever
         System.out.println("""
                            sucks to suck
                             ass to ass
                            """);
-}
+        figs=false;
+}}
 
 
 }
@@ -111,6 +126,8 @@ static void du(){
                        (•̀o•́)ง
                        """);
 }
-           
+static void skada(){
+    // jag ska flytta över vanliga skade systemet mot fienden till hit så den blir printad mycket mera smoothly(jag får inte tillräckligt betalt för detta!!!!!!!)
+}
 
 }
