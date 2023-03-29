@@ -126,8 +126,20 @@ static void du(){
                        (•̀o•́)ง
                        """);
 }
-static void skada(){
+static int skada(double cola){
     // jag ska flytta över vanliga skade systemet mot fienden till hit så den blir printad mycket mera smoothly(jag får inte tillräckligt betalt för detta!!!!!!!)
+    kombat åsna = new kombat();
+    cola=Math.floor(cola);
+                        if(cola==0){
+                            System.out.println("missa L");
+                        }else if(false){
+                            return (int) (15*cola);
+                        }else if(true){
+                            return (int)(30*cola);
+                        }else{
+                            return (int) 100;
+                        }
+                        
 }
 
 }
